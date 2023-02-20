@@ -14,7 +14,7 @@ function MeetupDetails(props) {
 
 export function getStaticPaths(){
  return {
-  path: [
+  paths: [
     {
       params: {
         meetupId : 'm1'
