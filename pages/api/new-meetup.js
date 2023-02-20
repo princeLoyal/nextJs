@@ -4,7 +4,6 @@ import { MongoClient } from 'mongodb';
 // POST /api/new-meetup
 
 async function handler(req, res) {
-  try{
   if (req.method === 'POST') {
     const data = req.body;
 
@@ -20,9 +19,6 @@ async function handler(req, res) {
     client.close();
 
     res.status(201).json({ message: 'Meetup inserted!' });
-  } } catch(err){
-      alert('yshd')
-      res.status(404).json({ message: 'Unsuccesful' }):
   }
 }
 
