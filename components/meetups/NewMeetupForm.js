@@ -11,7 +11,6 @@ function NewMeetupForm(props) {
 
   function submitHandler(event) {
     event.preventDefault();
-    alert('form submitted')
 
     const enteredTitle = titleInputRef.current.value;
     const enteredImage = imageInputRef.current.value;
@@ -26,7 +25,6 @@ function NewMeetupForm(props) {
     };
 
     props.onAddMeetup(meetupData);
-alert('form submitted 2')
 
   }
 
