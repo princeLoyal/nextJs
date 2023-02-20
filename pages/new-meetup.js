@@ -6,6 +6,7 @@ function NewMeetupPage() {
   const router = useRouter();
 
   async function addMeetupHandler(enteredMeetupData) {
+alert('shhs')
     const response = await fetch('/api/new-meetup', {
       method: 'POST',
       body: JSON.stringify(enteredMeetupData),
@@ -13,7 +14,7 @@ function NewMeetupPage() {
         'Content-Type': 'application/json'
       }
     });
-
+alert('data')
     const data = await response.json();
 
     alert('reached Finnish');
