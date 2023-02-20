@@ -4,7 +4,7 @@ import { MongoClient } from 'mongodb';
 // POST /api/new-meetup
 
 async function handler(req, res) {
-alert(req.method)
+  try{
   if (req.method === 'POST') {
     const data = req.body;
 
@@ -17,11 +17,12 @@ alert(req.method)
 
     const result = await meetupsCollection.insertOne(data);
 
-    alert('hshs');
-
     client.close();
 
     res.status(201).json({ message: 'Meetup inserted!' });
+  } } catch(err){
+      alert('yshd')
+      res.status(404).json({ message: 'Unsuccesful' }):
   }
 }
 
