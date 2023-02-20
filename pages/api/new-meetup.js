@@ -4,6 +4,7 @@ import { MongoClient } from 'mongodb';
 // POST /api/new-meetup
 
 async function handler(req, res) {
+alert(req.method)
   if (req.method === 'POST') {
     const data = req.body;
 
@@ -16,7 +17,7 @@ async function handler(req, res) {
 
     const result = await meetupsCollection.insertOne(data);
 
-    console.log(result);
+    alert('hshs');
 
     client.close();
 
