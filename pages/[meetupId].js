@@ -34,19 +34,27 @@ export function getStaticPaths(){
  };
 }
 
-export function getStaticProps(context){
-
+export async function getStaticProps(context){
   const id = context.params.meetupId;
-
+  function getMeetup(){
+    const response = await fetch('https://nextjs-faf60-default-rtdb.firebaseio.com/meetups.json');
+    const meetups = await response.json();
+    for (const key in meetups){
+      if(meetups[key].id === id){
+        meetup = {
+          image: meetups[key].image,
+          title: meetups[key].title,
+          address: meetups[key].address,
+          description: meetups[key].description, 
+        }
+        return meetup;
+      }
+    }
+  }
+  const meetup = getMeetup();
   return {
      props: {
-       meetup: {
-          image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/1280px-Stadtbild_M%C3%BCnchen.jpg',
-          id: id, 
-          title: 'First meetup',
-          address: 'Some Street 5, Some City',
-          description: 'This is the first meetup', 
-       },
+       meetup: meetup
      },
   };
 }
