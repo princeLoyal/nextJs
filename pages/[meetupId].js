@@ -12,25 +12,18 @@ function MeetupDetails(props) {
 }
 
 export function getStaticPaths(){
+ const response = await fetch('https://nextjs-faf60-default-rtdb.firebaseio.com/meetups.json');
+ const meetups = await response.json();
+ const meetupsIds = [];
+ for(const key in meetups){
+   const meetupId = meetups[key].id;
+   meetupIds.push(meetupId);
+ }
  return {
   fallback: false, 
-  paths: [
-    {
-      params: {
-        meetupId : '1'
-      }
-    },
-    {
-      params: {
-        meetupId : '2'
-      }
-    },
-    {
-      params: {
-        meetupId : '3'
-      }
-    },
-  ]
+  paths: meetups.map((meetup) => ({
+     params: { meetupId : meetup }
+  }))
  };
 }
 
