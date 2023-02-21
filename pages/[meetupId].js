@@ -38,7 +38,7 @@ export async function getStaticProps(context){
   const id = context.params.meetupId;
     const response = await fetch('https://nextjs-faf60-default-rtdb.firebaseio.com/meetups.json');
     const meetups = await response.json();
-    let meetup = {
+    let meetp = {
           image: 'https//:shhshd',
           title: id,
           address: 'hshshd',
@@ -46,7 +46,7 @@ export async function getStaticProps(context){
         };
     for (const key in meetups){
       if(meetups[key].id === id){
-        meetup = {
+        var meetup = {
           image: meetups[key].image,
           title: meetups[key].title,
           address: meetups[key].address,
