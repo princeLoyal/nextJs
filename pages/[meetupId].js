@@ -16,7 +16,7 @@ export async function getStaticPaths(){
  const meetups = await response.json();
  const meetupIds = [];
  for(const key in meetups){
-   const meetupId = meetups[key].id;
+   const meetupId = meetups[key].id.toString();
    meetupIds.push(meetupId);
  }
  return {
