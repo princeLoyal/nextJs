@@ -52,7 +52,10 @@ export function getStaticProps(context){
     }
     return null;
   }
-  const meetup = getMeetups();
+ // const meetup = getMeetups();
+  let meetup = {
+     title: 'yehe', 
+  };
   return {
      props: {
        meetup: meetup
