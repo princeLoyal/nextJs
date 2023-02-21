@@ -34,26 +34,24 @@ export function getStaticPaths(){
  };
 }
 
-export async function getStaticProps(context){
+export function getStaticProps(context){
   const id = context.params.meetupId;
+  async function getMeetups(){
     const response = await fetch('https://nextjs-faf60-default-rtdb.firebaseio.com/meetups.json');
     const meetups = await response.json();
-    let meetp = {
-          image: 'https//:shhshd',
-          title: id,
-          address: 'hshshd',
-          description: 'whueue', 
-        };
     for (const key in meetups){
       if(meetups[key].id === id){
-        var meetup = {
+        const meetup = {
           image: meetups[key].image,
           title: meetups[key].title,
           address: meetups[key].address,
           description: meetups[key].description, 
         }
+        return meetup;
       }
     }
+  }
+  const meetup = getMeetups();
   return {
      props: {
        meetup: meetup
