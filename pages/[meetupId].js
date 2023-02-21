@@ -13,7 +13,7 @@ function MeetupDetails(props) {
 
 export function getStaticPaths(){
  return {
-  fallback: true, 
+  fallback: false, 
   paths: [
     {
       params: {
