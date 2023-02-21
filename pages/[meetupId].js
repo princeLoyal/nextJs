@@ -1,6 +1,7 @@
 import MeetupDetail from '../components/meetups/MeetupDetail';
 
 function MeetupDetails(props) {
+  alert(props.meetup.title)
   return (
     <MeetupDetail
       image = { props.meetup.image }
