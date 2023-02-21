@@ -1,6 +1,11 @@
+import { useRouter } from 'next/router';
 import MeetupDetail from '../components/meetups/MeetupDetail';
 
 function MeetupDetails(props) {
+  const router = useRouter();
+  if(router.isFallback){
+    return <div>Loading...</div>
+  }
   return (
     <MeetupDetail
       image = { props.meetup.image }
@@ -20,7 +25,7 @@ export async function getStaticPaths(){
    meetupIds.push(meetupId);
  }
  return {
-  fallback: false, 
+  fallback: true, 
   paths: meetupIds.map((meetupId) => ({
      params: { meetupId : meetupId }
   }))
