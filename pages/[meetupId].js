@@ -47,15 +47,16 @@ export function getStaticProps(context){
           address: meetups[key].address,
           description: meetups[key].description, 
         }
-        return meetup;
+        return {
+title: 'ushd'
+   };
       }
     }
-    return null;
+    return {
+       title: 'hshs'
+    };
   }
- // const meetup = getMeetups();
-  let meetup = {
-     title: 'yehe', 
-  };
+  const meetup = getMeetups();
   return {
      props: {
        meetup: meetup
