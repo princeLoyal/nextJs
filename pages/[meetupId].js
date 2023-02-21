@@ -34,7 +34,7 @@ export function getStaticPaths(){
  };
 }
 
-export function getStaticProps(context){
+export async function getStaticProps(context){
   const id = context.params.meetupId;
 
     const response = await fetch('https://nextjs-faf60-default-rtdb.firebaseio.com/meetups.json');
