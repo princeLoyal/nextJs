@@ -36,12 +36,10 @@ export function getStaticPaths(){
 
 export async function getStaticProps(context){
   const id = context.params.meetupId;
-alert(typeof id + ' ' + id)
     const response = await fetch('https://nextjs-faf60-default-rtdb.firebaseio.com/meetups.json');
     const meetups = await response.json();
     let meetup = '';
     for (const key in meetups){
-alert(id + ' ' + typeof meetups[key].id + ' ' + meetups[key].id )
       if(meetups[key].id === id){
         meetup = {
           image: meetups[key].image,
