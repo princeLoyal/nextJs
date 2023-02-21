@@ -41,7 +41,7 @@ export function getStaticProps(context){
     const meetups = await response.json();
     for (const key in meetups){
       if(meetups[key].id === id){
-        meetup = {
+        const meetup = {
           image: meetups[key].image,
           title: meetups[key].title,
           address: meetups[key].address,
