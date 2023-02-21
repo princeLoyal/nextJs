@@ -39,10 +39,7 @@ export async function getStaticProps(context){
 
     const response = await fetch('https://nextjs-faf60-default-rtdb.firebaseio.com/meetups.json');
     const meetups = await response.json();
-    let meetup = {
-    title: 'id', 
-    address: 'usudud'
-    }
+    let meetup;
 
     for (const key in meetups){
       if(meetups[key].id === id){
