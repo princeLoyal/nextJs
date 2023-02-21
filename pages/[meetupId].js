@@ -20,6 +20,16 @@ export function getStaticPaths(){
         meetupId : '1'
       }
     },
+    {
+      params: {
+        meetupId : '2'
+      }
+    },
+    {
+      params: {
+        meetupId : '3'
+      }
+    },
   ]
  };
 }
