@@ -1,6 +1,5 @@
 import { useRouter } from 'next/router';
-//import { MongoClient } from 'mongodb';
-import { useEffect } from 'react';
+import { MongoClient } from 'mongodb';
 
 import NewMeetupForm from '../components/meetups/NewMeetupForm';
 
