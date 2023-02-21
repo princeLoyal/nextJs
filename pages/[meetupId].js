@@ -13,14 +13,14 @@ function MeetupDetails(props) {
 
 export function getStaticPaths(){
  return {
+  fallback: true, 
   paths: [
     {
       params: {
         meetupId : '1'
       }
     },
-  ],
-  fallback: true
+  ]
  };
 }
 
