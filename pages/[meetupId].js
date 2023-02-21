@@ -1,7 +1,6 @@
 import MeetupDetail from '../components/meetups/MeetupDetail';
 
 function MeetupDetails(props) {
-  alert(props.meetup.title)
   return (
     <MeetupDetail
       image = { props.meetup.image }
@@ -39,7 +38,12 @@ export async function getStaticProps(context){
   const id = context.params.meetupId;
     const response = await fetch('https://nextjs-faf60-default-rtdb.firebaseio.com/meetups.json');
     const meetups = await response.json();
-    let meetup = '';
+    let meetup = {
+          image: 'https//:shhshd',
+          title: id,
+          address: 'hshshd',
+          description: 'whueue', 
+        };
     for (const key in meetups){
       if(meetups[key].id === id){
         meetup = {
