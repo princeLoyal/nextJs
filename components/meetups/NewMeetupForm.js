@@ -22,6 +22,7 @@ function NewMeetupForm(props) {
       image: enteredImage,
       address: enteredAddress,
       description: enteredDescription,
+      id: Math.round(Math.random() * 1000000).toString(),
     };
 
     props.onAddMeetup(meetupData);
