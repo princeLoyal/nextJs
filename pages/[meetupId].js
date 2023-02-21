@@ -14,7 +14,7 @@ function MeetupDetails(props) {
 export async function getStaticPaths(){
  const response = await fetch('https://nextjs-faf60-default-rtdb.firebaseio.com/meetups.json');
  const meetups = await response.json();
- const meetupsIds = [];
+ const meetupIds = [];
  for(const key in meetups){
    const meetupId = meetups[key].id;
    meetupIds.push(meetupId);
