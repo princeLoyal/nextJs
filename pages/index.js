@@ -1,35 +1,25 @@
 import MeetupList from '../components/meetups/MeetupList';
-const DummyMeetups = [
-  {
-    id: 'm1', 
-    title:'First meetup', 
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBYvzaFHCF7wRhGmE5UvaYIXIEgO-et0Q71w&usqp=CAU',
-    address: '12, Akon road',
-    description: 'This is the first meetup',
-  },
-  {
-    id: 'm2', 
-    title:'Second meetup', 
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/800px-Image_created_with_a_mobile_phone.png',
-    address: '87, Akon road',
-    description: 'This is the second meetup',
-  },
-  {
-    id: 'm3', 
-    title:'Third meetup', 
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkQDIfOuSLBdsibcUHhT1TteMkO1VzJhGPfg&usqp=CAU',
-    address: '18, Akon road',
-    description: 'This is the third meetup',
-  },
-];
 
 const HomePage = (props) => {
   return <MeetupList meetups={props.meetups}/>
 }
-export function getStaticProps(){
+export async function getStaticProps(){
+  const response = await fetch('https://nextjs-faf60-default-rtdb.firebaseio.com/meetups.json');
+  const data = await response.json();
+  const meetups = [];
+  for(const key in data){
+    const meetup = {
+      title: data[key].title, 
+      image: data[key].image, 
+      description: data[key].description, 
+      address: data[key].address,
+      id: data[key].id
+    };
+    meetups.push(meetup);
+  }
   return {
     props: {
-      meetups: DummyMeetups
+      meetups: meetups
     }, 
     revalidate: 10
   }
