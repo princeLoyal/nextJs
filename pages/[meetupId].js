@@ -1,4 +1,3 @@
-
 import MeetupDetail from '../components/meetups/MeetupDetail';
 
 function MeetupDetails(props) {
@@ -21,7 +20,7 @@ export function getStaticPaths(){
       }
     },
   ],
-  fallback: true
+  fallback: false
  };
 }
 
