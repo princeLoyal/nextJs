@@ -7,7 +7,7 @@ function NewMeetupPage() {
 
   async function addMeetupHandler(enteredMeetupData) {
 alert('shhs')
-    const response = await fetch('/api/new-meetup', {
+    const response = await fetch('https://nextjs-faf60-default-rtdb.firebaseio.com/meetups.json', {
       method: 'POST',
       body: JSON.stringify(enteredMeetupData),
       headers: {
