@@ -15,7 +15,7 @@ export async function getStaticProps(){
       address: data[key].address,
       id: data[key].id
     };
-    meetups.push(meetup);
+    meetups.unshift(meetup);
   }
   return {
     props: {
