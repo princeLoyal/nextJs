@@ -17,7 +17,7 @@ export function getStaticPaths(){
   paths: [
     {
       params: {
-        meetupId : 'm1'
+        meetupId : '1'
       }
     },
   ],
