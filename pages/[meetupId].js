@@ -20,7 +20,7 @@ export function getStaticPaths(){
       }
     },
   ],
-  fallback: false
+  fallback: true
  };
 }
 
