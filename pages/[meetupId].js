@@ -54,7 +54,9 @@ export async function getStaticProps(context){
 
   return {
      props: {
-       meetup: meetup
+       meetup: {
+  title: 'shhshs'
+}
      },
   };
 }
