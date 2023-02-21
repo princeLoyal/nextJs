@@ -50,6 +50,7 @@ export function getStaticProps(context){
         return meetup;
       }
     }
+    return null;
   }
   const meetup = getMeetups();
   return {
